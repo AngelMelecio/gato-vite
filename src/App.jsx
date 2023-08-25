@@ -8,10 +8,6 @@ const App = () => {
 
   const [player, setPlayer] = useState(null)
 
-  useEffect(() => {
-    console.log('Effecto App')
-  }, [])
-
   return (
     <>
       {
@@ -26,6 +22,7 @@ const App = () => {
           <>
             <Tablero
               player={player}
+              setPlayer={setPlayer}
             />
           </>
       }

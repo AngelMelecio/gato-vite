@@ -83,11 +83,16 @@ td{
   width: 100px;
   height: 100px;
   text-align: center;
-  font-size: 50px;
+  font-size: 55px;
   font-weight: bold;
 }
 
 td.hov:hover{
-  background-color: #ab8fb3;
+  background-color: #363636;
   cursor: pointer;
+  transition: 0.2s;
+}
+
+.win{
+  color:#4e46e5b9
 }
