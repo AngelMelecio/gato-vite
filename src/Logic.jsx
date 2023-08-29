@@ -11,32 +11,32 @@ const Lines = [
 
 const Lleno = 511;
 
-export function check(tab, player){
-    
+export function result(tab, player) {
+
     let end = true
-    tab.forEach( fila => {
-        fila.forEach( col => {
-            if(col === null) end = false
+    tab.forEach(fila => {
+        fila.forEach(col => {
+            if (col === null) end = false
         })
     })
-    if(end) return { line:null, winner: 'Empate' }
+    if (end) return { end: true, line: null, winner: null }
 
-    let ret = false
+    let ret = { end: false }
 
-    Lines.forEach( line =>{
+    Lines.forEach(line => {
         let matchX = true
-        line.forEach( pos =>{
+        line.forEach(pos => {
             let i = Math.floor(pos / 3), j = pos % 3;
-            if(tab[i][j] !== 'X') matchX = false
-        } )
-        if(matchX) ret = { line: line, winner: player === 0 }
+            if (tab[i][j] !== 'X') matchX = false
+        })
+        if (matchX) ret = { end: true, line: line, winner: player === 0 }
         let matchO = true
-        line.forEach( pos =>{
+        line.forEach(pos => {
             let i = Math.floor(pos / 3), j = pos % 3;
-            if(tab[i][j] !== 'O') matchO = false
-        } )
-        if(matchO) ret = { line: line, winner: player === 1 }
-    } )
+            if (tab[i][j] !== 'O') matchO = false
+        })
+        if (matchO) ret = { end: true, line: line, winner: player === 1 }
+    })
 
     return ret
 }

@@ -1,4 +1,5 @@
 :root {
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -95,4 +96,23 @@ td.hov:hover{
 
 .win{
   color:#4e46e5b9
+}
+
+.tab{
+  margin: 0;
+  padding: 10px 0 10px 30px;
+  transition: 0.2s;
+  border-radius: 0 20px 20px 0;
+}
+
+.tab:hover{
+  background-color: #19191a;
+  cursor: pointer;
+  transition: 0.2s;
+
+}
+
+.tab:active{
+  opacity: 60%;
+  transition: 0;
 }
