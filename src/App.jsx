@@ -4,15 +4,16 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Tablero from './Tablero'
 import Docs from './Docs'
+import Stats from './Stats'
 
 const App = () => {
 
   const [player, setPlayer] = useState(null)
-  const [view, setView] = useState(true)
+  const [view, setView] = useState('game')
 
   return (
     <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
-      {view ?
+      {view === 'game' &&
         <>
           {
             player === null ?
@@ -31,17 +32,32 @@ const App = () => {
               </>
           }
         </>
-        :
+      }
+      {
+        view === 'docs' &&
         <>
-          <Docs/>
-          
+          <Docs />
         </>
       }
+      {
+        view === 'stats' &&
+        <Stats />
+      }
+
+      {/* Docs Button 
       <div style={{ position: 'absolute', top: '20px', right: '20px' }}>
-        <button onClick={() => setView(p => !p)}>
+        <button onClick={() => setView(p => p === 'game' ? 'docs' : 'game' )}>
           {view ? "Documentación" : "Juego"}
         </button>
       </div>
+      */}
+      {/* stats Button */}
+      <div style={{ position: 'absolute', top: '20px', left: '20px' }}>
+        <button onClick={() => setView(p => p === 'game' ? 'stats' : 'game')}>
+          {view === 'stats' ? "Regresar" : "Estadísticas"}
+        </button>
+      </div>
+
     </div>
   )
 }

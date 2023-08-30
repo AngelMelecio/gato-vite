@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { addDoc, collection, getFirestore } from 'firebase/firestore/lite';
+import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query } from 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -30,4 +30,34 @@ export async function postResult(game) {
         .catch((error) => {
             throw new Error("Error writing document: ", error)
         });
+}
+
+export async function getStats() {
+    // Reference to your collection and document
+    
+    const snapshot = await getDocs(collection(db, 'resultados'));
+    const data = snapshot.docs.map( doc => doc.data() ) 
+
+    return({
+        total: data.length,
+        wins: data.filter( doc => doc.winner === false).length,
+        loses: data.filter( doc => doc.winner === true ).length,
+        draws: data.filter( doc => doc.winner === null).length,
+        matches: data.length,
+    })
+
+    /*
+ 
+    const data = snapshot.map(doc => doc.data());
+    console.log(data)
+    return data;
+    
+    */
+
+    /*
+    if (snapshot.empty) {
+        console.log('No matching documents.');
+        return;
+    }
+    */
 }

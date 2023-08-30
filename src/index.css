@@ -13,6 +13,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
 }
 
 a {
@@ -115,4 +116,47 @@ td.hov:hover{
 .tab:active{
   opacity: 60%;
   transition: 0;
+}
+
+.container{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.box{
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #213547;
+  width: 100%;
+  border-radius: 0.5rem;
+  margin: 1rem;
+}
+@media (min-width: 768px) { /* 768px es un valor común para pantallas grandes, pero puedes ajustarlo según tus necesidades */
+  .main-page{
+    padding:5rem;
+  }
+  .container {
+      flex-direction: row; /* Alinea los elementos en una fila */
+      flex-wrap: wrap; /* Permite que los elementos se envuelvan si hay más de 2 por fila */
+  }
+
+  .box {
+      height: 50%; /* Cada elemento ocupa el 50% de la altura */
+      width: 50%; /* Cada elemento ocupa el 50% del ancho */
+  }
+}
+
+.card h1, h2{
+  margin: 0.4rem 0 0.4rem 0;
 }
