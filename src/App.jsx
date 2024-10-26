@@ -8,7 +8,7 @@ import Options from './components/inputs/Options'
 
 const App = () => {
 
-  const [selectedTab, setSelectedTab] = useState("Home")
+  const [selectedTab, setSelectedTab] = useState("Principal")
 
   const tabs = [
     "Princial",
@@ -132,7 +132,7 @@ const App = () => {
 
   const Page = () => {
     switch (selectedTab) {
-      case "Princial":
+      case "Principal":
         return <Home />
       case "Conócenos":
         return <Conocenos />
