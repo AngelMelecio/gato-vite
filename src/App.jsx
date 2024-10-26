@@ -11,7 +11,7 @@ const App = () => {
   const [selectedTab, setSelectedTab] = useState("Principal")
 
   const tabs = [
-    "Princial",
+    "Principal",
     // "Invierte",
     // "Conócenos",
   ]
